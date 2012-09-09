@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package filesystem;
+import java.util.Scanner;
 
 /**
  *
@@ -14,6 +15,11 @@ public class FileSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        Scanner lea = new Scanner(System.in);
+        String comando;
+        System.out.println("Benji File System!!\n");
+        comando = lea.nextLine();
+        System.out.println("Lo que se taipeo: " + comando);
     }
 }
