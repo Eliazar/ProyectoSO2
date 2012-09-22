@@ -6,10 +6,8 @@ package bash;
 
 import java.util.ArrayList;
 import Estructuras.superBloque;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.nio.ByteBuffer;
+import java.io.File;
+import java.io.RandomAccessFile;
 
 /**
  *
@@ -43,13 +41,15 @@ public class Create {
             superBloque.tamanio_bloque = Integer.parseInt(listaParametros.get(1));
             superBloque.cantidad_bloques = Integer.parseInt(listaParametros.get(2));
 
-            ByteBuffer buffer = ByteBuffer.allocate(superBloque.tamanio_bloque);
-            FileOutputStream imagenDisco = new FileOutputStream(nombreArchivo);
-            BufferedOutputStream bufferOut = new BufferedOutputStream(imagenDisco);
-
-            for(int i = 0; i < superBloque.cantidad_bloques;  i++){
-                bufferOut.write(buffer.array(), 0, superBloque.tamanio_bloque);
+            File disco = new File(nombreArchivo);
+            RandomAccessFile archivo = new RandomAccessFile(disco, "rw");
+            
+            byte[] buffer = new byte[superBloque.tamanio_bloque];
+            
+            for(int i = 0; i < superBloque.cantidad_bloques; i++){
+                archivo.write(buffer);
             }
+            
         }catch(Exception error){
             throw new Exception(error.getMessage());
         }

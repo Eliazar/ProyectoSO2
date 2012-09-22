@@ -39,8 +39,9 @@ public class FileSystem {
 
                    if(comando.equals("create")){
                        
-                       while(tokenizador.hasMoreTokens())
+                       while(tokenizador.hasMoreTokens()){
                            parametros.add(tokenizador.nextToken());
+                       }
                        
                        Create create = new Create(parametros);
                        //create.imprimir();
