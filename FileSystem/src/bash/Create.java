@@ -37,8 +37,13 @@ public class Create {
     
     private void crearDisco() throws Exception{
         try{
+            int cuadradoCercano = 0;
+            while (cuadradoCercano < Integer.parseInt(listaParametros.get(1))){
+                cuadradoCercano *= 2;
+            }
+            
             String nombreArchivo = listaParametros.get(0);
-            superBloque.tamanio_bloque = Integer.parseInt(listaParametros.get(1));
+            superBloque.tamanio_bloque = cuadradoCercano;
             superBloque.cantidad_bloques = Integer.parseInt(listaParametros.get(2));
 
             File disco = new File(nombreArchivo);
